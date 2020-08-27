@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_walkthrough_example/test_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -63,6 +64,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _showWalkthrough() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TestScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -108,7 +116,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          _incrementCounter();
+          _showWalkthrough();
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
